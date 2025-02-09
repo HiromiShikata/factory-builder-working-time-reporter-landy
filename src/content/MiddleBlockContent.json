@@ -1,6 +1,5 @@
 {
-    "title": "Introduce your product quickly & effectively",
-    "text": "Landy comes with multi-lingual support, all of the content is stored in the JSON files, so that you can manage the texts without having any prior knowledge in developing web applications using React.js.",
-    "button": "Get started"
-  }
-  
+    "title": "How It Works",
+    "text": "Simple to use:\n\nTeam members move issues to 'In Progress' when they start working\n\nThe app automatically tracks time spent in this status\n\nEvery morning, you receive a detailed report as a new issue\n\n\nJust $2 per user per month - a fraction of the cost of time lost to status meetings.",
+    "button": "Start Free Trial"
+}

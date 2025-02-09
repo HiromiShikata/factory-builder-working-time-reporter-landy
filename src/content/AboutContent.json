@@ -1,15 +1,15 @@
 {
-  "title": "Light, fast & responsive",
-  "text": "This template is ready to use, so you don't need to change anything at a component level, unless you want to customize the default styling.",
+  "title": "Key Features",
+  "text": "Built specifically for GitHub Projects v2, our Time Tracker delivers powerful insights with zero configuration required.",
   "section": [
     {
-      "title": "Why Antd?",
-      "content": "Ant Design is a React UI library that has a lot of easy-to-use components for building elegant UI.",
-      "icon": "notes.svg"
+      "title": "Effortless Integration",
+      "content": "Works seamlessly with your existing GitHub Projects v2 workflow. Simply move issues to 'In Progress' and let Time Tracker handle the rest.",
+      "icon": "graphs.svg"
     },
     {
-      "title": "Why styled-components?",
-      "content": "Styled Components gives you total control over your components.",
+      "title": "Detailed Reporting",
+      "content": "Receive comprehensive daily reports showing time allocation across tasks and team members, helping you make data-driven decisions.",
       "icon": "notes.svg"
     }
   ]

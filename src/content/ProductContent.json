@@ -1,4 +1,22 @@
 {
-  "title": "That's about it!",
-  "text": "If you are familiar with React, or SPA frameworks in general, there shouldn't be any confusing parts about this template. if not, you can always reach out to me and I'll try me best to answer your questions."
+  "title": "Simple, Transparent Pricing",
+  "text": "Maximize your team's productivity with our affordable pricing.\n\nJust $2 per user per month - a fraction of the cost of time lost to status meetings and interruptions. No hidden fees, no complicated tiers.",
+  "features": [
+    {
+      "title": "Everything Included",
+      "text": "All features are included in one simple plan. Get automated daily reports, minute-by-minute tracking, and real-time status updates for every team member."
+    },
+    {
+      "title": "Unlimited Projects",
+      "text": "Track time across all your GitHub Projects v2 boards. No limit on the number of projects or repositories you can connect."
+    },
+    {
+      "title": "Complete Data History",
+      "text": "Access your full time tracking history anytime. We store your data securely and make it easily accessible whenever you need it."
+    },
+    {
+      "title": "Free Trial Available",
+      "text": "Try Time Tracker free for 14 days. No credit card required. Experience how it can transform your team's productivity risk-free."
+    }
+  ]
 }

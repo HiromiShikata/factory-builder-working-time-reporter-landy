@@ -1,12 +1,12 @@
 {
-  "title": "Landing page template for developers & startups",
-  "text": "Beautifully designed templates using React.js, ant design and styled-components! Save weeks of time and build your landing page in minutes.",
+  "title": "Issue Time Tracker for GitHub Projects v2",
+  "text": "Transform your project management with real-time insights. Get crystal-clear visibility into your team's daily activities with automatic time tracking for issues in the 'In Progress' status.",
   "button": [
     {
-      "title": "Explore"
+      "title": "Get Started"
     },
     {
-      "title": "Learn more",
+      "title": "Learn More",
       "color": "#fff"
     }
   ]

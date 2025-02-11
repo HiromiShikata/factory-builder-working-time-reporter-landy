@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { notification } from "antd";
 import { IFormValues } from "../../components/ContactForm/types";
 
 const initialValues: IFormValues = {

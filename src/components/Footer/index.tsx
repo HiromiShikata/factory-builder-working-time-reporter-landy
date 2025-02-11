@@ -1,10 +1,21 @@
-import {Col, Row} from "antd";
-import {TFunction, withTranslation} from "react-i18next";
-import {SvgIcon} from "../../common/SvgIcon";
+import { Row, Col } from "antd";
+import { TFunction, withTranslation } from "react-i18next";
+import { SvgIcon } from "../../common/SvgIcon";
 import Container from "../../common/Container";
 
 import i18n from "i18next";
-import {Chat, Extra, FooterSection, Language, LanguageSwitch, LanguageSwitchContainer, Large, Para,} from "./styles";
+import {
+  FooterSection,
+  Title,
+  Extra,
+  Language,
+  LanguageSwitch,
+  LanguageSwitchContainer,
+  Large,
+  Para,
+  Chat,
+  ExternalLink,
+} from "./styles";
 
 const Footer = ({ t }: { t: TFunction }) => {
   const handleChange = (language: string) => {
@@ -28,13 +39,17 @@ const Footer = ({ t }: { t: TFunction }) => {
               <Para>
                 {t(`Do you have any question? Feel free to reach out.`)}
               </Para>
-              <Chat onClick={()=>scrollTo('contact')}>{t(`Let's Chat`)}</Chat>
+              <Chat onClick={() => scrollTo('contact')}>{t(`Let's Chat`)}</Chat>
             </Col>
             <Col lg={8} md={8} sm={12} xs={12}>
-              <Language>{t("Address")}</Language>
-              <Para>2-chome-2-15-531 Minamiaoyama,</Para>
-              <Para>Minato City, Tokyo-to,</Para>
-              <Para>Japan 107-0062</Para>
+              <Title>{t("Policy")}</Title>
+              <ExternalLink 
+                href="https://uminoseisaku.com/privacypolicy-en.html" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                {t("Privacy Policy")}
+              </ExternalLink>
             </Col>
             <Col lg={6} md={6} sm={12} xs={12}>
               <Language>{t("Language")}</Language>
@@ -56,6 +71,14 @@ const Footer = ({ t }: { t: TFunction }) => {
                   />
                 </LanguageSwitch>
               </LanguageSwitchContainer>
+            </Col>
+          </Row>
+          <Row justify="space-between">
+            <Col lg={10} md={10} sm={12} xs={12}>
+              <Language>{t("Address")}</Language>
+              <Para>2-chome-2-15-531 Minamiaoyama,</Para>
+              <Para>Minato City, Tokyo-to,</Para>
+              <Para>Japan 107-0062</Para>
             </Col>
           </Row>
         </Container>

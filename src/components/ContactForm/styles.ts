@@ -26,6 +26,14 @@ export const Span = styled("span")`
   padding: 0 0.675rem;
 `;
 
+export const Label = styled("label")`
+  display: block;
+  padding: 0 0.675rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+`;
+
 export const ButtonContainer = styled("div")`
   text-align: end;
   position: relative;

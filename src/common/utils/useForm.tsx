@@ -7,6 +7,7 @@ const initialValues: IFormValues = {
   email: "",
   message: "",
   challenges: [],
+  otherChallenge: "",
 };
 
 export const useForm = (validate: { (values: IFormValues): Partial<IFormValues> }) => {

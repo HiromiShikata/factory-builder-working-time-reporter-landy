@@ -19,6 +19,8 @@ const validate = (values: IFormValues): Partial<IFormValues> => {
 
   if (!values.challenges || values.challenges.length === 0) {
     errors.challenges = ["Please select at least one challenge"];
+  } else if (values.challenges.includes("Other") && !values.otherChallenge?.trim()) {
+    errors.challenges = ["Please specify your challenge in the Other field"];
   }
 
   return errors;

@@ -42,3 +42,36 @@ export const ButtonContainer = styled("div")`
     padding-top: 0.75rem;
   }
 `;
+
+export const ChallengeOption = styled("div")`
+  margin-bottom: 0.5rem;
+`;
+
+export const ChallengeLabel = styled("label")`
+  display: flex;
+  align-items: center;
+`;
+
+export const Checkbox = styled("input")`
+  margin-right: 0.5rem;
+  width: 1.5em;
+`;
+
+export const OtherInputContainer = styled("div")`
+  margin-left: 2rem;
+  margin-bottom: 0.5rem;
+  width: calc(100% - 2rem);
+  
+  .other-input {
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    
+    &:focus {
+      border-color: rgb(103, 58, 183);
+      outline: none;
+    }
+  }
+`;

@@ -10,6 +10,7 @@ export interface IFormValues {
   email: string;
   message: string;
   challenges: string[];
+  otherChallenge?: string;
 }
 
 export const challengeOptions = [

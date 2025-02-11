@@ -7,12 +7,24 @@ import { Button } from "../../common/Button";
 import Block from "../Block";
 import Input from "../../common/Input";
 import TextArea from "../../common/TextArea";
-import { ContactContainer, FormGroup, Span, Label, ButtonContainer } from "./styles";
+import { 
+  ContactContainer, 
+  FormGroup, 
+  Span, 
+  Label, 
+  ButtonContainer,
+  ChallengeOption,
+  ChallengeLabel,
+  Checkbox,
+  OtherInputContainer 
+} from "./styles";
 import { ContactProps, challengeOptions } from "./types";
 
 const Contact = ({ title, content, id, t }: ContactProps) => {
   const [loading, setLoading] = useState(false);
   const [selectedChallenges, setSelectedChallenges] = useState<string[]>([]);
+  const [otherValue, setOtherValue] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   const { values, errors, handleChange, handleSubmit } = useForm(validate);
 
@@ -21,9 +33,20 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
   };
 
   const handleChallengeChange = (challenge: string) => {
-    const updatedChallenges = selectedChallenges.includes(challenge)
-      ? selectedChallenges.filter(c => c !== challenge)
-      : [...selectedChallenges, challenge];
+    let updatedChallenges: string[];
+    
+    if (challenge === "Other") {
+      if (selectedChallenges.includes("Other")) {
+        updatedChallenges = selectedChallenges.filter(c => c !== "Other");
+        setOtherValue("");
+      } else {
+        updatedChallenges = [...selectedChallenges, "Other"];
+      }
+    } else {
+      updatedChallenges = selectedChallenges.includes(challenge)
+        ? selectedChallenges.filter(c => c !== challenge)
+        : [...selectedChallenges, challenge];
+    }
     
     setSelectedChallenges(updatedChallenges);
     handleChange("challenges", updatedChallenges);
@@ -40,9 +63,17 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
         formData.append("entry.602484349", values.name);
         formData.append("entry.1839736380", values.email);
         formData.append("entry.1820855826", values.message);
+
         values.challenges.forEach(challenge => {
-          formData.append("entry.1030791043", challenge);
+          if (challenge !== "Other") {
+            formData.append("entry.1030791043", challenge);
+          }
         });
+
+        if (selectedChallenges.includes("Other") && otherValue) {
+          formData.append("entry.1030791043", "__other_option__");
+          formData.append("entry.1030791043.other_option_response", otherValue);
+        }
 
         await fetch(
           "https://docs.google.com/forms/d/e/1FAIpQLSe--YtN0fxM3LnliIBA4yLyhVLimQG0Tbq_MDDfQFB03XhfJg/formResponse",
@@ -54,9 +85,19 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
         );
 
         setLoading(false);
-        window.location.href = "/thank-you";
+        setSuccessMessage("Thank you for your message. We'll get back to you soon!");
+        
+        // Reset form
+        setSelectedChallenges([]);
+        setOtherValue("");
+        handleChange("name", "");
+        handleChange("email", "");
+        handleChange("message", "");
+        handleChange("challenges", []);
+        handleChange("otherChallenge", "");
       } catch (error) {
         setLoading(false);
+        setSuccessMessage("There was an error sending your message. Please try again.");
         console.error("Error submitting form:", error);
       }
     }
@@ -92,18 +133,32 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
             </Col>
             <Col span={24}>
               <Label>What is your challenge in leading your team?</Label>
-              {challengeOptions.map((challenge) => (
-                <div key={challenge}>
-                  <label style={{ display: "flex", alignItems: "center", marginBottom: "0.5rem" }}>
-                    <input
+              {[...challengeOptions, "Other"].map((challenge) => (
+                <ChallengeOption key={challenge}>
+                  <ChallengeLabel>
+                    <Checkbox
                       type="checkbox"
                       checked={selectedChallenges.includes(challenge)}
                       onChange={() => handleChallengeChange(challenge)}
-                      style={{ marginRight: "0.5rem", width: "1.5em" }}
                     />
                     {challenge}
-                  </label>
-                </div>
+                  </ChallengeLabel>
+                  {challenge === "Other" && selectedChallenges.includes("Other") && (
+                    <OtherInputContainer>
+                      <input
+                        type="text"
+                        className="other-input"
+                        name="otherChallenge"
+                        placeholder="Your challenge"
+                        value={otherValue}
+                      onChange={(e) => {
+                        setOtherValue(e.target.value);
+                        handleChange("otherChallenge", e.target.value);
+                      }}
+                      />
+                    </OtherInputContainer>
+                  )}
+                </ChallengeOption>
               ))}
               {errors.challenges && Array.isArray(errors.challenges) && (
                 <Span>{errors.challenges[0]}</Span>
@@ -119,6 +174,11 @@ const Contact = ({ title, content, id, t }: ContactProps) => {
               {errors.message && <Span>{errors.message}</Span>}
             </Col>
             <ButtonContainer>
+              {successMessage && (
+                <Span style={{ color: successMessage.includes("error") ? "#ff4d4f" : "#52c41a", marginBottom: "1rem" }}>
+                  {successMessage}
+                </Span>
+              )}
               <Button 
                 name="submit"
                 color={loading ? "secondary" : "primary"}

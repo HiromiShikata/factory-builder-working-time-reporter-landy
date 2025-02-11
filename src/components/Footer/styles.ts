@@ -168,3 +168,23 @@ export const LanguageSwitchContainer = styled("div")`
   justify-content: space-between;
   width: 85px;
 `;
+
+export const ExternalLink = styled("a")`
+  font-size: 16px;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-transform: capitalize;
+  line-height: 24px;
+  display: block;
+  margin-bottom: 0.625rem;
+  transition: all 0.3s ease-in-out;
+  max-width: max-content;
+  text-decoration: none;
+
+  &:hover {
+    color: rgb(255, 130, 92);
+    text-underline-position: under;
+    text-decoration: rgb(255, 130, 92) wavy underline;
+  }
+`;

@@ -1,6 +1,6 @@
 {
   "About": "Características",
-  "Policy": "Cómo Funciona",
+  "Policy": "Política",
   "Mission": "Beneficios",
   "Product": "Precios",
   "Tell us everything": "Comienza con Time Tracker",
@@ -18,5 +18,6 @@
   "Name": "Nombre",
   "Your Name": "Tu Nombre",
   "Email": "Email",
-  "Your Email": "Tu Correo Electrónico"
+  "Your Email": "Tu Correo Electrónico",
+  "Privacy Policy": "Política de Privacidad"
 }

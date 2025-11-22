@@ -19,7 +19,7 @@ jobs:
     env:
       REACT_APP_GTM_ID: GTM-WZ6R9R5T
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v4
         with:
           node-version: 18
